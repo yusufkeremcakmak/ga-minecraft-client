@@ -56,4 +56,16 @@ class LauncherServiceTest {
         assertEquals("Welcome, Alex! Launching...", service.getLaunchStatusMessage("Alex"),
                 "launch message should match expected format");
     }
+
+    @Test
+    void authenticate_returnsTrue() {
+        assertTrue(service.authenticate("Steve"),
+                "placeholder authenticate should return true for any valid username");
+    }
+
+    @Test
+    void prepareNetworking_doesNotThrow() {
+        assertDoesNotThrow(() -> service.prepareNetworking(),
+                "prepareNetworking() placeholder should not throw");
+    }
 }

@@ -30,8 +30,9 @@ public class LauncherController {
     private void handleLaunch() {
         String username = usernameField.getText().trim();
 
-        if (!launcherService.isUsernameValid(username)) {
-            statusLabel.setText("Please enter a username.");
+        String errorMessage = launcherService.getValidationErrorMessage(username);
+        if (errorMessage != null) {
+            statusLabel.setText(errorMessage);
             return;
         }
 

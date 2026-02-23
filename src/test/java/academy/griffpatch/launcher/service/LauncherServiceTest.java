@@ -42,7 +42,37 @@ class LauncherServiceTest {
 
     @Test
     void isUsernameValid_validNameReturnsTrue() {
-        assertTrue(service.isUsernameValid("Steve"), "non-empty username should be valid");
+        assertTrue(service.isUsernameValid("Steve"), "letters-only username should be valid");
+    }
+
+    @Test
+    void isUsernameValid_tooShortReturnsFalse() {
+        assertFalse(service.isUsernameValid("ab"), "username shorter than 3 chars should be invalid");
+    }
+
+    @Test
+    void isUsernameValid_tooLongReturnsFalse() {
+        assertFalse(service.isUsernameValid("a".repeat(17)), "username longer than 16 chars should be invalid");
+    }
+
+    @Test
+    void isUsernameValid_invalidCharsReturnsFalse() {
+        assertFalse(service.isUsernameValid("bad username"), "username with spaces should be invalid");
+    }
+
+    @Test
+    void isUsernameValid_underscoreAndNumbersValid() {
+        assertTrue(service.isUsernameValid("Steve_42"), "username with letters, numbers, underscores should be valid");
+    }
+
+    @Test
+    void getValidationErrorMessage_validUsernameReturnsNull() {
+        assertNull(service.getValidationErrorMessage("Steve"), "valid username should return null error message");
+    }
+
+    @Test
+    void getValidationErrorMessage_invalidUsernameReturnsMessage() {
+        assertNotNull(service.getValidationErrorMessage("ab"), "too-short username should return an error message");
     }
 
     @Test

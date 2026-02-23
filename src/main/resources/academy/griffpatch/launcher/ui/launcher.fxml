@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="academy.griffpatch.launcher.ui.LauncherController"
+      spacing="16"
+      alignment="CENTER"
+      styleClass="root">
+
+    <padding>
+        <Insets top="40" right="60" bottom="40" left="60"/>
+    </padding>
+
+    <Label text="Griffpatch Academy"
+           styleClass="title-label"/>
+
+    <Label text="Minecraft Launcher"
+           styleClass="subtitle-label"/>
+
+    <TextField fx:id="usernameField"
+               promptText="Enter your username"
+               maxWidth="260"/>
+
+    <Button fx:id="launchButton"
+            text="Launch"
+            defaultButton="true"
+            onAction="#handleLaunch"
+            maxWidth="260"/>
+
+    <Label fx:id="statusLabel"
+           text=""
+           styleClass="status-label"
+           wrapText="true"
+           maxWidth="320"/>
+
+</VBox>

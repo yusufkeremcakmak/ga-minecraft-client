@@ -31,4 +31,28 @@ public class LauncherService {
     public String getLaunchStatusMessage(String username) {
         return "Welcome, " + username + "! Launching...";
     }
+
+    /**
+     * Placeholder authentication step.
+     *
+     * <p>Always returns {@code true}. Real authentication against the
+     * membership API will be implemented in a future phase.
+     *
+     * @param username the username to authenticate
+     * @return {@code true} (placeholder — authentication not yet implemented)
+     */
+    public boolean authenticate(String username) {
+        // Placeholder: real authentication against membership API to be added in a future phase.
+        return true;
+    }
+
+    /**
+     * Placeholder networking preparation step.
+     *
+     * <p>Does nothing yet. Server connection setup will be implemented in a
+     * future phase.
+     */
+    public void prepareNetworking() {
+        // Placeholder: server connection setup to be added in a future phase.
+    }
 }
